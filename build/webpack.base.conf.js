@@ -2,6 +2,7 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const webpack = require('webpack')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -27,6 +28,12 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  plugins:[
+    new webpack.DllReferencePlugin({
+      context:path.resolve(__dirname,'..'),
+      manifest: require('./manifest.json')
+    })
+  ],
   module: {
     rules: [
       {
