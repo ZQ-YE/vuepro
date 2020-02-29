@@ -40,6 +40,7 @@ module.exports = {
 }
 ```
 2. 在webpack.base.conf.js文件中配置 
+
 `在参考文档中少了 entry 字段的设置，报错 Configuration file found but no entry configured. 请自行设置需要优化打包项`
 ```js
 const webpack = require('webpack')
