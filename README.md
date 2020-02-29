@@ -1,7 +1,5 @@
 # 安装
 
-> A Vue.js project
-
 ``` bash
 ### 安装依赖
 npm install
