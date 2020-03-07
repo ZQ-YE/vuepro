@@ -5,7 +5,7 @@
 			<el-col :span="11"><div class="tools" @click.prevent="collapse"><i class="fa fa-align-left"></i></div><div class="tools" @click.prevent="refresh"><i class="fa fa-refresh"></i></div><div class="tools" @click.prevent="goback"><i class="fa fa-arrow-left"></i></div></el-col>
 			<el-col :span="3" class="userinfo">
 				<el-dropdown trigger="hover">
-					<span class="el-dropdown-link userinfo-inner">{{sysUserName}}</span>
+					<span class="el-dropdown-link userinfo-inner"><img src="~@/assets/avatar.png" />{{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item  @click.native="resetpwd">修改密码</el-dropdown-item>
 						<el-dropdown-item  @click.native="logout">退出登录</el-dropdown-item>
@@ -82,7 +82,7 @@
 
 <script>
 	import http from "api/http.js"
-	// import MenuUtils from 'utils/MenuUtils.js'
+	import MenuUtils from '@/utils/menuUtils.js';
 	// import theme from "@/mixins/theme.js";
 	export default {
 		inject:['reload'],
@@ -93,18 +93,8 @@
 				breadcrumbFixed:false,  //吸顶固定
 				sysName:'管理后台',
 				collapsed: false,
-				sysUserName:'',
+				sysUserName:'admin',
 				sysUserAvatar:'',
-				form:{
-					name: '',
-					region: '',
-					date1: '',
-					date2: '',
-					delivery: false,
-					type: [],
-					resource: '',
-					desc: ''
-				},
 				navlists:this.$router.options.routes
 			}
 		},
@@ -124,7 +114,7 @@
 			if (user) {
 				user = JSON.parse(user);
 				this.sysUserName = user.Account || '';
-				this.sysUserAvatar = "../assets/user.png";
+				this.sysUserAvatar = "~@/assets/avatar.png";
 			}
 			document.getElementById("displayMain").addEventListener('scroll',this.handleScroll);
 		},

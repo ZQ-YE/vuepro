@@ -101,10 +101,6 @@
 			handleSubmit(){
                 let that=this;
                 
-					// sessionStorage.setItem('Token',"Token123456");
-					// that.$router.push({
-					// 	path: '/homepage'
-					// });
 				this.$refs.ruleForm.validate((valid) => {
 					if(valid) {
 						this.logining = true;
@@ -124,6 +120,7 @@
 							}
 							if( res.Ret==200 ){
 								sessionStorage.setItem('Token',res.Token);
+								sessionStorage.setItem('SysUserInfo',JSON.stringify({Account:this.ruleForm.account}))
 								localStorage.setItem('account',this.b.encode(this.ruleForm.account));
 								localStorage.setItem('checkPass',this.b.encode(this.ruleForm.checkPass));
 
@@ -139,7 +136,6 @@
             menuNav(){
 				let that = this;
                 let params = {}
-                console.log("menuNav")
 				getmenulist(params).then(res => {
 					var res = { 
 						Ret:200,
@@ -158,7 +154,6 @@
 						if( priData.length>0 ){
                             MenuUtils(routes,priData);
                             that.$router.options.routes = Object.assign(that.$router.options.routes,routes);
-                            console.log(that.$router.options.routes);
 							that.$router.addRoutes(routes);
 						}
 						that.$router.push({
