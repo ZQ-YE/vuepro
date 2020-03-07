@@ -5,8 +5,13 @@ import App from './App'
 import Router from 'vue-router'
 import routes from './routes'
 
+// 引入element-ui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.config.productionTip = false
 
+Vue.use(ElementUI);
 Vue.use(Router);
 
 const router= new Router({

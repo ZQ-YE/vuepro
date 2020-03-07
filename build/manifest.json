@@ -1,1 +1,1 @@
-{"name":"vendor_library","content":{"./node_modules/_vue-router@3.1.6@vue-router/dist/vue-router.esm.js":{"id":1,"meta":{"harmonyModule":true},"exports":["default"]}}}
+{"name":"vendor_library","content":{"./node_modules/vue-router/dist/vue-router.esm.js":{"id":1,"meta":{"harmonyModule":true},"exports":["default"]}}}
