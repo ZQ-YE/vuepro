@@ -143,3 +143,23 @@ npm install sass-loader@7.3.1 --save-dev
 + utils/menuUtils.js 左侧菜单动态路由加载数据遍历
 + utils/lazyLoading.js  左侧菜单模板获取模板 component 内容
 
+
+### 安装 font-awesome
+`参考文档：https://www.cnblogs.com/muzs/p/8521609.html`
+```
+npm install font-awesome
+main.js 文件中 import 'font-awesome/css/font-awesome.css'
+使用 在需要的地方 <span class="fa fa-xxx"></span>
+
+# 一下看项目是否已经安装过，按需安装配置即可
+npm install style-loader css-loader sass-loader --save-dev
+npm install  node-sass --save-dev  //(sass-loader 依赖于node-sass)
+npm install extract-text-webpack-plugin  //(这个是webpack抽离css的插件，这个cli自带了，可以-v检查下)
+在webpack.base.config.js 文件中
+rule:[
+    {
+        test:/\.scss$/,
+        loaders:["style","css","sass"]
+    }
+]
+```
