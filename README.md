@@ -184,5 +184,6 @@ this.$store.dispatch('方法名','参数')
 // modules
 // 引入外部定义的 store 对象
 
+// vuex 的更高级的使用方法请自行百度
 ```
 
