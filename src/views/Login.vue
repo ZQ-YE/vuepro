@@ -111,22 +111,33 @@
 						userLogin(loginParams).then(res => {
                             var res = { 
                                 Ret:200,
-                                Token:'222',
-                            }
-                                
-                            this.logining = false;
-							if( res.Ret==100 ){
-                                return false;
+                                Token:loginParams.loginId,
 							}
-							if( res.Ret==200 ){
-								sessionStorage.setItem('Token',res.Token);
-								sessionStorage.setItem('SysUserInfo',JSON.stringify({Account:this.ruleForm.account}))
-								localStorage.setItem('account',this.b.encode(this.ruleForm.account));
-								localStorage.setItem('checkPass',this.b.encode(this.ruleForm.checkPass));
+							
+							//测试状态管理使用 admin 可登录成功
+							that.$store.dispatch('login',res.Token).then(()=>{
 
-                                //获取后台侧边栏
-								this.menuNav();
-							}
+								that.$message.success('登录成功！')
+								//登录成功
+								that.logining = false;
+								if( res.Ret==100 ){
+									return false;
+								}
+								if( res.Ret==200 ){
+									sessionStorage.setItem('Token',res.Token);
+									sessionStorage.setItem('SysUserInfo',JSON.stringify({Account:that.ruleForm.account}))
+									localStorage.setItem('account',that.b.encode(that.ruleForm.account));
+									localStorage.setItem('checkPass',that.b.encode(that.ruleForm.checkPass));
+	
+									//获取后台侧边栏
+									that.menuNav();
+								}
+
+							}).catch(()=>{
+								that.$message.error('登录失败！')
+								that.logining = false;
+							})
+                                
 						});
 					} else {
 						return false;

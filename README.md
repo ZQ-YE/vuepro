@@ -146,7 +146,7 @@ npm install sass-loader@7.3.1 --save-dev
 
 ### 安装 font-awesome
 `参考文档：https://www.cnblogs.com/muzs/p/8521609.html`
-```
+```js
 npm install font-awesome
 main.js 文件中 import 'font-awesome/css/font-awesome.css'
 使用 在需要的地方 <span class="fa fa-xxx"></span>
@@ -163,3 +163,26 @@ rule:[
     }
 ]
 ```
+
+### 安装 vuex
+```js
+npm install vuex --save
+||
+vue add vuex
+
+// 1、新建store => index.js
+// 2、在 main.js 引用
+// 3、基础使用方法
+// state  
+this.$store.state.xxx
+// getters
+this.$store.getters.xxx;
+// mutations
+this.$store.commit('方法名');
+// actions
+this.$store.dispatch('方法名','参数')
+// modules
+// 引入外部定义的 store 对象
+
+```
+

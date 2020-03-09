@@ -12,6 +12,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import MenuUtils from '@/utils/menuUtils.js'
 
+// vuex
+import store from './store'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
@@ -59,5 +62,6 @@ router.beforeEach((to,from,next)=>{
 // })
 new Vue({
   router,
+  store,
   render:h=>h(App)
 }).$mount("#app")
