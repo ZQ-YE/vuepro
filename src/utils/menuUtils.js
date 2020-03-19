@@ -13,7 +13,6 @@ function generaMenu(routers,data){
 			let dataItem = item.children;
 			generaMenu(menu.children,dataItem);
         }
-        console.log(menu);
 		routers.push(menu);
 	});
 }

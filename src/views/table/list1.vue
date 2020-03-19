@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-container">
         <el-card class="box-card">
           <el-table
             :data="tableData"

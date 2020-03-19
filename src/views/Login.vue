@@ -9,22 +9,24 @@
 			</div> -->
 			<div class="fx_wrap">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-position="right" label-width="0px" class="login-container" @submit.native.prevent>
-					<h3 class="fx_h3">登录</h3>
-					<el-form-item prop="account">
+					<h3 class="fx_h3">
+						<img src="~@/assets/logo.png" alt="logo"> 后台管理系统
+					</h3>
+					<el-form-item prop="account" class="ipt-item">
 						<el-input type="text" v-model="ruleForm.account" auto-complete="off" placeholder="请输入用户名">
-							<template slot="prepend"><i class="fa fa-mobile-phone fa-fw fa-lg"></i></template>
+							<template slot="prepend"><i class="fa fa-user fa-lg"></i></template>
 						</el-input>
 					</el-form-item>
-					<el-form-item prop="checkPass" v-if="visible">
+					<el-form-item prop="checkPass" class="ipt-item" v-if="visible">
 						<el-input type="password" v-model="ruleForm.checkPass" auto-complete="off" placeholder="请输入密码">
 							<i slot="suffix" class="el-icon-view el-input__icon" title="显示密码" @click="changePass('show')" style="cursor:pointer;"></i>
-							<template slot="prepend"><i class="fa fa-key fa-fw fa-lg"></i></template>
+							<template slot="prepend"><i class="fa fa-key fa-lg"></i></template>
 						</el-input>
 					</el-form-item>
-					<el-form-item prop="checkPass" v-else>
+					<el-form-item prop="checkPass" class="ipt-item" v-else>
 						<el-input type="text" v-model="ruleForm.checkPass" auto-complete="off" placeholder="请输入密码">
 							<i slot="suffix" class="el-icon-more el-input__icon" title="隐藏密码" @click="changePass('hide')" style="cursor:pointer;"></i>
-							<template slot="prepend"><i class="fa fa-key fa-fw fa-lg"></i></template>
+							<template slot="prepend"><i class="fa fa-key fa-lg"></i></template>
 						</el-input>
 					</el-form-item>
 					<el-form-item>
@@ -108,14 +110,14 @@
 							loginId: this.ruleForm.account,
 							password: this.ruleForm.checkPass
 						};
-						userLogin(loginParams).then(res => {
+						//userLogin(loginParams).then(res => {
                             var res = { 
                                 Ret:200,
                                 Token:loginParams.loginId,
 							}
 							
 							//测试状态管理使用 admin 可登录成功
-							that.$store.dispatch('login',res.Token).then(()=>{
+							//that.$store.dispatch('login',res.Token).then(()=>{
 
 								that.$message.success('登录成功！')
 								//登录成功
@@ -133,12 +135,12 @@
 									that.menuNav();
 								}
 
-							}).catch(()=>{
-								that.$message.error('登录失败！')
-								that.logining = false;
-							})
+							// }).catch(()=>{
+							// 	that.$message.error('登录失败！')
+							// 	that.logining = false;
+							// })
                                 
-						});
+						//});
 					} else {
 						return false;
 					}
@@ -147,7 +149,7 @@
             menuNav(){
 				let that = this;
                 let params = {}
-				getmenulist(params).then(res => {
+				//getmenulist(params).then(res => {
 					var res = { 
 						Ret:200,
 						Menus:menulistjson,
@@ -168,12 +170,12 @@
 							that.$router.addRoutes(routes);
 						}
 						that.$router.push({
-							path: '/homepage'
+							path: '/home'
 						});
 					} else {
 						this.navlists = null;
 					}
-				});
+				//});
 			},
 			changePass(value){
 	        	this.visible = !(value === 'show');
@@ -183,19 +185,20 @@
 </script>
 
 <style lang="scss" scoped>
-	#container{ width:100%; height:100%; position:relative; overflow:hidden; }
+	$bg:#283443;
+	#container{ width:100%; height:100%; position:relative; overflow:hidden; background-color:$bg;}
 	.fx_paper{
 		display:flex;
 		width:400px;
-		height:420px;
+		height:400px;
 		position: absolute;
 		left:50%;
 		top:50%;
 		border-radius: 8px;
 		justify-content: center;
 		transform: translate(-50%, -50%);
-		background-color: rgba(255,255,255,0.8);
-		box-shadow: 0 6px 20px 5px rgba(40, 120, 255, 0.1), 0 16px 24px 2px rgba(0, 0, 0, 0.05);
+		background-color: $bg;
+		box-shadow: 0 0 20px rgba(0,0,0,0.2);
 		overflow: hidden;
 	}
 	.fx_pager_m{
@@ -216,8 +219,12 @@
         .fx_h3{
 			font-size:30px;
 			text-align: center;
-			color: #409EFF;
-			margin-bottom:60px;
+			color: rgb(62, 173, 109);
+			margin:10px 0 40px;
+			img{
+				width:80px;
+				vertical-align: middle;
+			}
 		}
     }
 	.remember{margin-bottom:6px;}

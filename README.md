@@ -187,3 +187,12 @@ this.$store.dispatch('方法名','参数')
 // vuex 的更高级的使用方法请自行百度
 ```
 
+### 安装 js-cookie
+
+
+
+---
+```
+框架搭建参照 vue-element-admin 项目
+```
+

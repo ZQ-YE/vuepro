@@ -33,7 +33,8 @@ export default {
 </script>
 
 <style lang="scss">
-	@import '~scss_vars';
+  @import '~scss_index';
+  @import '~scss_vars';
 	body{ margin:0px; padding:0px; font-family:Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif; font-size:14px; -webkit-font-smoothing:antialiased; }
 	#app{ width:100%; position:absolute; top:0px; bottom:0px; }
 	.el-submenu [class^=fa]{ vertical-align:baseline; margin-right:10px; }

@@ -5,12 +5,13 @@ import App from './App'
 import Router from 'vue-router'
 import routes from './routes'
 
+import 'normalize.css/normalize.css'
 import 'font-awesome/css/font-awesome.min.css';
 // 引入element-ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-import MenuUtils from '@/utils/menuUtils.js'
+import MenuUtils from '@/utils/menuUtils.js';
 
 // vuex
 import store from './store'
@@ -36,6 +37,7 @@ if(menuData){
 }
 // 路由守卫
 router.beforeEach((to,from,next)=>{
+  window.document.title=to.name;
   if(to.path=='/login'){
       sessionStorage.removeItem("Token");
       sessionStorage.removeItem('meundata');
