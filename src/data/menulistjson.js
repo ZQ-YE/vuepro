@@ -2,7 +2,7 @@ const menulist=[{
     path: '/table',
     remark:"layout",
     name: '主页',
-    redirect:'noRedirect',
+    redirect:'/table/userlist',
     hidden:false,
     meta: { title: '列表', icon: 'fa fa-list' },
     children: [
@@ -25,7 +25,7 @@ const menulist=[{
     path: '/limit',
     remark:"layout",
     name: '主页',
-    redirect:'noRedirect',
+    redirect:'/limit/tree',
     hidden:false,
     meta: { title: '权限', icon: 'fa fa-street-view' },
     children: [

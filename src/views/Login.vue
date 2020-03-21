@@ -46,6 +46,7 @@
 	import http from "@/api/http.js";
 
 	export default {
+		name:'login',
 		data() {
 			return {
 				b:new http.Base64(),
@@ -117,7 +118,7 @@
 							}
 							
 							//测试状态管理使用 admin 可登录成功
-							//that.$store.dispatch('login',res.Token).then(()=>{
+							that.$store.dispatch('login/login',res.Token).then(()=>{
 
 								that.$message.success('登录成功！')
 								//登录成功
@@ -135,10 +136,10 @@
 									that.menuNav();
 								}
 
-							// }).catch(()=>{
-							// 	that.$message.error('登录失败！')
-							// 	that.logining = false;
-							// })
+							}).catch(()=>{
+								that.$message.error('登录失败！')
+								that.logining = false;
+							})
                                 
 						//});
 					} else {
