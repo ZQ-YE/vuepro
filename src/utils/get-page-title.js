@@ -1,6 +1,6 @@
 import defaultSettings from '@/settings'
 
-const title = defaultSettings.title || 'kayi pro'
+const title = defaultSettings.title || 'test pro'
 
 export default function getPageTitle(pageTitle) {
   if (pageTitle) {

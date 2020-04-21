@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'kayi_token'
+const TokenKey = 'test_token'
 
 export function getToken() {
   return Cookies.get(TokenKey)
